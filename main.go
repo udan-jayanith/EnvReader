@@ -20,6 +20,7 @@ func (env *Env) setKeyValue(key, value string) {
 
 var EnvFile Env
 
+//LoadEnv reads the .env file and stores it in the Env struct.
 func LoadEnv(){
 	file, err := os.Open(".env")
 	if err != nil {
@@ -74,6 +75,8 @@ func (env *Env) get(key string) string {
 	return env.envMap[key]
 }
 
+// Get returns the value for a given key.  
+// If the .env file hasn't been read yet, Get will read the .env file and then return the value for the given key.  
 func Get(key string) string{
 	return EnvFile.get(key)
 }

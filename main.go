@@ -67,13 +67,13 @@ func LoadEnv(){
 	}
 }
 
-func (env *Env) get(value string) string {
+func (env *Env) get(key string) string {
 	if env.envMap == nil {
 		LoadEnv()
 	}
-	return env.envMap[value]
+	return env.envMap[key]
 }
 
-func Get(value string) string{
-	return EnvFile.get(value)
+func Get(key string) string{
+	return EnvFile.get(key)
 }
